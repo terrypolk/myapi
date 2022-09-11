@@ -1,3 +1,4 @@
+# pylint: disable=bare-except
 """
 Functions that have to run a shell
 """
