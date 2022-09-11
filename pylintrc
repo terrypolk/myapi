@@ -1,0 +1,7 @@
+[MASTER]
+# It seems isort and pylint don't always agree on import order.
+disable=duplicate-code,wrong-import-order,bad-continuation
+
+[MISCELLANEOUS]
+# Ignore FIXME,XXX,TODO...
+notes=
