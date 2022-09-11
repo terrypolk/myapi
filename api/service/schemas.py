@@ -1,7 +1,5 @@
 # pylint: disable=too-few-public-methods
 "module"
-import datetime
-
 from flask_restplus import Namespace
 
 
