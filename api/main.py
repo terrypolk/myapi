@@ -1,7 +1,6 @@
+# pylint: disable=unused-variable
 "module"
-from app import globalvars
 
-# from app.config import WATCH_BLACKLIST
 from flask import Blueprint, Flask, url_for
 from flask_cors import CORS
 from flask_restplus import Api, apidoc
