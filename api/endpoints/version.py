@@ -2,12 +2,10 @@
 "module"
 from api.config import GIT_VERSION
 from api.service.schemas import VersionSchema
+from app.config import APP_URL
 from flask_restplus import Resource
 
-# from app.config import LCS_URL
-
 API = VersionSchema.api
-APP_URL = "localhost"
 
 
 @API.route("/")

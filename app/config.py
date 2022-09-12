@@ -13,4 +13,5 @@ GIT_PATH = APP_PATH + ".git"
 
 # Load variables from config file.
 load_dotenv(f"{APP_PATH}.env")
+APP_URL = os.environ["APP_URL"]
 DEBUG = os.environ["DEBUG"] == "true"

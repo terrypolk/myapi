@@ -1,4 +1,4 @@
-# pylint: disable=unused-variable
+# pylint: disable=unused-variable,unused-argument
 "module"
 
 from flask import Blueprint, Flask, url_for
@@ -45,8 +45,7 @@ def create_app():
     app.url_map.strict_slashes = False
 
     @app.errorhandler(404)
-    def page_not_found(error):  # pylint: disable=unused-variable
-        # pylint: disable=unused-argument
+    def page_not_found(error):
         "function"
         return {"error": "path not found (or missing/incorrect path param?)"}, 404
 
@@ -59,13 +58,7 @@ def create_app():
     )
 
     api.add_namespace(version)
-
     app.register_blueprint(blueprint)
     app.config.from_object(FlaskAppConfig)
     app.app_context().push()
-
-    # globalvars.init()
-    # if WATCH_BLACKLIST:
-    #     refresh_blacklist()
-
     return app
