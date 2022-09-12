@@ -12,3 +12,16 @@ Example .env:
 APP_URL = http://localhost:5555
 DEBUG = true
 ```
+
+Simple docker-compose.yml:
+
+```yaml
+version: '3'
+
+services:
+  api:
+    build: ./myapi
+    ports:
+      - "5555:5555"
+
+```
