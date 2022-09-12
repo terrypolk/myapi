@@ -1,0 +1,23 @@
+{
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/.ipynb_checkpoints": true
+  },
+  "python.defaultInterpreterPath": "venv/bin/python",
+  "python.linting.pylintEnabled": true,
+  "python.linting.pylintPath": "pylint",
+  "editor.defaultFormatter": null,
+  "editor.formatOnSave": false,
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "venv/bin/black",
+  "python.formatting.blackArgs": [
+    "-l 100"
+  ]
+}
