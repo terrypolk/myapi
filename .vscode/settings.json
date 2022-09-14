@@ -19,5 +19,10 @@
   "python.formatting.blackPath": "venv/bin/black",
   "python.formatting.blackArgs": [
     "-l 100"
-  ]
+  ],
+  "vs-kubernetes": {
+    "disable-linters": [
+      "resource-limits"
+    ]
+  }
 }
