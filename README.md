@@ -25,3 +25,9 @@ services:
       - "5555:5555"
 
 ```
+
+Temp fix for debug issue:
+
+```sh
+FLASK_APP=api/manage.py FLASK_ENV=development flask run --no-debugger --port 5555
+```

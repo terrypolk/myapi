@@ -1,0 +1,21 @@
+# Currently not being used - using simple proxy deployment instead.  Left for reference.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: myapi
+  name: api-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /api/$1
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: api-service
+            port:
+              number: 5555

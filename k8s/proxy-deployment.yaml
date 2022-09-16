@@ -2,36 +2,36 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: myapi
-  name: api-service
+  name: proxy-service
 spec:
   selector:
-    app: api
+    app: proxy
   type: NodePort
   ports:
-  - port: 5555
-    nodePort: 31000
+  - port: 80
+    nodePort: 31002
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: myapi
-  name: api
+  name: proxy
   labels:
-    app: api
+    app: proxy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api
+      app: proxy
   template:
     metadata:
       labels:
-        app: api
+        app: proxy
     spec:
       containers:
-      - image: gh-api:latest
+      - image: api-proxy:v2
         imagePullPolicy: Never
-        name: api
+        name: proxy
         ports:
-        - containerPort: 5555
-          name: api
+        - containerPort: 80
+          name: proxy

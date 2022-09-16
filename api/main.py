@@ -39,7 +39,7 @@ def create_app():
     "function"
     app = Flask(__name__)
     # CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
-    CORS(app)
+    # CORS(app)
     # Next line: https://github.com/noirbizarre/flask-restplus/issues/565
     app.wsgi_app = ProxyFix(app.wsgi_app)
     app.url_map.strict_slashes = False
