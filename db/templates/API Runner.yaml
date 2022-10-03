@@ -14,6 +14,9 @@ Groups:
     #Description: These endpoints are works-in-progress and will eventually be removed from this section and possibly added to other sections if they go to prod.
     Endpoints:
 
+      GET /api/auth/token:
+        Description: Gets details about the API token you are currently using.
+
       GET /api/templates:
         Description: Returns LCS templates in JSON format.  Example pre-loaded.
         Fields:
