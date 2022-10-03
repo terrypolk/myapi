@@ -1,6 +1,7 @@
 # pylint: disable=unused-variable,unused-argument
 "module"
 
+from app import globalvars
 from flask import Blueprint, Flask, url_for
 from flask_cors import CORS
 from flask_restplus import Api, apidoc
@@ -8,6 +9,7 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 
 from api.config import GIT_TAG, GIT_VERSION, FlaskAppConfig
 from api.endpoints.auth import API as auth
+from api.endpoints.templates import API as templates
 from api.endpoints.version import API as version
 
 
@@ -58,8 +60,11 @@ def create_app():
     )
 
     api.add_namespace(auth)
+    api.add_namespace(templates)
     api.add_namespace(version)
     app.register_blueprint(blueprint)
     app.config.from_object(FlaskAppConfig)
     app.app_context().push()
+
+    globalvars.init()
     return app

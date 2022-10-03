@@ -10,5 +10,6 @@ MarkupSafe==1.1.1
 pylint==2.4.4
 python-dotenv==0.12.0
 python-jose==2.0.2
+PyYAML==5.4
 requests==2.26.0
 Werkzeug==0.16.0

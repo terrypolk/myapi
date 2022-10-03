@@ -1,4 +1,3 @@
-# pylint: disable=broad-except
 "module"
 import datetime
 import uuid
@@ -21,7 +20,7 @@ def get_token_info(headers):
             return data, status
         return {"message": "your current token details", "data": data}, 200
 
-    except Exception as error:  # pylint: disable=broad-except
+    except Exception as error:
         return err_obj("get_token_info", __name__, error), 500
 
 
@@ -39,7 +38,7 @@ def get_token_details(token):
             "decoded": {"header": unv_header, "claims": unv_claims},
         }, 200
 
-    except Exception as error:  # pylint: disable=broad-except
+    except Exception as error:
         return err_obj("get_token_details", __name__, error), 500
 
 
@@ -78,7 +77,7 @@ def get_token(headers):
             "expires_utc": expires_utc,
         }, 200
 
-    except Exception as error:  # pylint: disable=broad-except
+    except Exception as error:
         return err_obj("get_token", __name__, error), 500
 
 
@@ -101,7 +100,7 @@ def validate_token(headers):
     except jwt.ExpiredSignatureError:
         return {"error": "Auth token expired"}, 403
 
-    except Exception as error:  # pylint: disable=broad-except
+    except Exception as error:
         print(error)
         return {"error": "Invalid auth token"}, 403
 
@@ -120,5 +119,5 @@ def encode_auth_token(iat, exp, user_id, name, email):
             "jti": jti,
         }
         return jwt.encode(payload, JWTKEY[JWTKEY_CURRENT], headers=headers, algorithm="HS256")
-    except Exception as error:  # pylint: disable=broad-except
+    except Exception as error:
         return error

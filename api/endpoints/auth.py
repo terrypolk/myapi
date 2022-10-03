@@ -1,4 +1,3 @@
-# pylint: disable=no-self-use
 "module"
 from api.service.auth_service import get_token, get_token_info
 from api.service.decorators import token_required

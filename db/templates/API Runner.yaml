@@ -1,0 +1,42 @@
+---
+Description: |
+  <div class="marginTop1em">
+    <font size=+1>
+      This tool allows you to experiment with some selected API endpoints within the browser.  In some cases, the full capability of the endpoint is not exposed here. We recommend you use <a href="https://www.postman.com/">Postman</a> to fully explore the API.
+    </font>
+  </div>
+
+LineLimit: 3000  # Defaults to 5000 if LineLimit is not defined.
+
+Groups:
+
+  Main:
+    #Description: These endpoints are works-in-progress and will eventually be removed from this section and possibly added to other sections if they go to prod.
+    Endpoints:
+
+      GET /api/templates:
+        Description: Returns LCS templates in JSON format.  Example pre-loaded.
+        Fields:
+          Name:
+            fieldType: textbox
+            label: Name
+            class: m4
+            value: API Runner
+            validation:
+              mandatory: true
+
+      GET /api/templates/{Template}:
+        Description: Gets a template record. Example pre-loaded.
+        Fields:
+          "{Template}":
+            fieldType: textbox
+            label: "{Template}"
+            class: m4
+            value: API Runner
+            validation:
+              mandatory: true
+            subDescription: Template name.
+
+      GET /api/version:
+        #SupportUrl: /kb/api-version
+        Description: Get current LCS API version.

@@ -1,4 +1,3 @@
-# pylint: disable=no-self-use
 "module"
 from api.config import GIT_VERSION
 from api.service.schemas import VersionSchema
