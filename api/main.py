@@ -7,6 +7,7 @@ from flask_restplus import Api, apidoc
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 from api.config import GIT_TAG, GIT_VERSION, FlaskAppConfig
+from api.endpoints.auth import API as auth
 from api.endpoints.version import API as version
 
 
@@ -38,8 +39,7 @@ class MyCustomApi(Api):
 def create_app():
     "function"
     app = Flask(__name__)
-    # CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
-    # CORS(app)
+    CORS(app)
     # Next line: https://github.com/noirbizarre/flask-restplus/issues/565
     app.wsgi_app = ProxyFix(app.wsgi_app)
     app.url_map.strict_slashes = False
@@ -57,6 +57,7 @@ def create_app():
         description=(f"Version: {GIT_VERSION}"),
     )
 
+    api.add_namespace(auth)
     api.add_namespace(version)
     app.register_blueprint(blueprint)
     app.config.from_object(FlaskAppConfig)
